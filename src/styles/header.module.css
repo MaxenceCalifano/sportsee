@@ -1,0 +1,16 @@
+.header {
+    background: var(--black);
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.header nav span {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+}
