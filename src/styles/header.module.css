@@ -1,16 +1,24 @@
 .header {
     background: var(--black);
-}
-
-.header nav {
     display: flex;
     align-items: center;
     font-size: 1.25rem;
     font-weight: 500;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-.header nav span {
+.logo {
     display: flex;
     align-items: center;
+}
+
+.sportsee {
+    margin: 0 5px;
     color: var(--primary-color);
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
 }
