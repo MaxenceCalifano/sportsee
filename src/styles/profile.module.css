@@ -1,0 +1,17 @@
+main {
+    display: flex;
+    height: 100%;
+}
+
+.content {
+    width: 90%;
+    padding: 20px 76px;
+}
+
+.greetings {
+    font-size: 2.5rem;
+}
+
+.greetings span {
+    color: var(--primary-color);
+}
