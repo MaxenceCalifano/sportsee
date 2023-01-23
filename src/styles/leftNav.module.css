@@ -1,0 +1,27 @@
+.leftNav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 101px;
+    top: 98px;
+    justify-content: center;
+    z-index: -1;
+    align-items: center;
+    background: var(--black);
+}
+
+.logos {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.leftNav span {
+    transform: rotate(-180deg);
+    writing-mode: vertical-lr;
+    color: white;
+    font-size: 0.6rem;
+    margin-bottom: 5em;
+}
