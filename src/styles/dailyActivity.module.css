@@ -1,0 +1,13 @@
+.tooltip {
+    background-color: var(--primary-color);
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 0.8rem;
+    width: 75px;
+    height: 100px;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

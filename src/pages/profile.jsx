@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import LeftNav from "../Components/LeftNav";
+import DailyActivity from "../Components/DailyActivity";
 
 import styles from '../styles/profile.module.css';
 
@@ -17,20 +18,17 @@ function Profile() {
     }, [])
 
     console.log(user)
-
+    if (!user) return null // Retourner un loader
     return (
         <>
             <Header />
             <main>
                 <LeftNav />
-                {user ?
-                    <section className={styles.content}>
-                        <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
-                        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-                    </section>
-                    : <>{/* TODO METTRE UN LOADER*/}</>
-                }
-
+                <section className={styles.content}>
+                    <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
+                    <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+                    <DailyActivity userID={user.id} />
+                </section>
             </main>
         </>
     );
