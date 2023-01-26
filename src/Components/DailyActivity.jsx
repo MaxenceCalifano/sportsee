@@ -28,11 +28,21 @@ function DailyActivity({ userID }) {
         return null;
     };
 
+    const renderLegend = (props) => {
+        return (
+            <ul className={styles.legend}>
+                <li className={styles.legendItem}>Poids (kg)</li>
+                <li className={styles.secondLegendItem}>Calories brûlées (kCal)</li>
+            </ul>
+        );
+    }
+
     return (
         <>
             {
                 sessions ?
-                    <ResponsiveContainer height={200}>
+                    <ResponsiveContainer height={300}>
+
                         <BarChart
                             width={500}
                             height={'100%'}
@@ -45,12 +55,18 @@ function DailyActivity({ userID }) {
                             }}
                         >
                             <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                            <Legend />
+                            <Legend
+                                verticalAlign="top"
+                                align="right"
+                                iconType="circle"
+                                wrapperStyle={{ top: 0, right: 40 }}
+                                content={renderLegend}
+                            />
                             <XAxis />
                             <YAxis dataKey={"kilogram"} orientation="right" domain={[0, 'dataMax + 450']} />
                             <Tooltip
                                 content={<CustomTooltip />}
-                                wrapperStyle={{ outline: 'none' }}
+                                wrapperStyle={{ outline: 'none', color: '#74798C' }}
                             />
                             <Bar dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={10} />
                             <Bar dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={10} />

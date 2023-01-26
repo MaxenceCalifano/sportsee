@@ -10,4 +10,38 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+}
+
+.legend {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.legendItem:before {
+    content: "\2022";
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 1.5rem;
+    margin-left: -1.5rem;
+}
+
+.legendItem,
+.secondLegendItem {
+    display: flex;
+    align-items: center;
+    color: #74798C;
+    margin: 0 25px;
+}
+
+.secondLegendItem:before {
+    content: "\2022";
+    color: #74798C;
+    font-weight: bold;
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 1.5rem;
+    margin-left: -1.5rem;
 }
