@@ -13,6 +13,16 @@
     align-items: center;
 }
 
+.legendWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legendWrapper p {
+    font-weight: 500;
+}
+
 .legend {
     display: flex;
     justify-content: flex-end;

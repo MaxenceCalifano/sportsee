@@ -30,10 +30,13 @@ function DailyActivity({ userID }) {
 
     const renderLegend = (props) => {
         return (
-            <ul className={styles.legend}>
-                <li className={styles.legendItem}>Poids (kg)</li>
-                <li className={styles.secondLegendItem}>Calories brûlées (kCal)</li>
-            </ul>
+            <div className={styles.legendWrapper}>
+                <p>Activité quotidienne</p>
+                <ul className={styles.legend}>
+                    <li className={styles.legendItem}>Poids (kg)</li>
+                    <li className={styles.secondLegendItem}>Calories brûlées (kCal)</li>
+                </ul>
+            </div>
         );
     }
 
@@ -42,7 +45,6 @@ function DailyActivity({ userID }) {
             {
                 sessions ?
                     <ResponsiveContainer height={300}>
-
                         <BarChart
                             width={500}
                             height={'100%'}
@@ -63,13 +65,14 @@ function DailyActivity({ userID }) {
                                 content={renderLegend}
                             />
                             <XAxis />
-                            <YAxis dataKey={"kilogram"} orientation="right" domain={[0, 'dataMax + 450']} />
+                            <YAxis yAxisId="right" orientation="right" />
+                            <YAxis hide={true} yAxisId="left" orientation="left" />
                             <Tooltip
                                 content={<CustomTooltip />}
                                 wrapperStyle={{ outline: 'none', color: '#74798C' }}
                             />
-                            <Bar dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={10} />
-                            <Bar dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={10} />
+                            <Bar yAxisId="right" dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]} barSize={10} />
+                            <Bar yAxisId='left' dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} barSize={10} />
                         </BarChart>
                     </ResponsiveContainer>
                     : <></>
