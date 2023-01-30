@@ -28,7 +28,7 @@ function DailyActivity({ userID }) {
         return null;
     };
 
-    const renderLegend = (props) => {
+    const renderLegend = () => {
         return (
             <div className={styles.legendWrapper}>
                 <p>Activité quotidienne</p>
