@@ -1,24 +1,24 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, ReferenceDot } from 'recharts';
 import { useState, useEffect } from 'react';
 
-function AverageSessions({ sessions }) {
+function AverageSessions({ data }) {
 
     const [formattedSessions, setFormattedSessions] = useState()
 
 
     useEffect(() => {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-        if (sessions) {
-            const test = [...sessions]
+        if (data) {
+            const sessions = [...data]
 
-            test.forEach(session => {
+            sessions.forEach(session => {
                 const index = session.day
                 session.day = days[index - 1]
             })
-            setFormattedSessions(test)
+            setFormattedSessions(sessions)
         }
 
-    }, [sessions])
+    }, [data])
 
     const renderLegend = () => {
         return (
@@ -40,7 +40,7 @@ function AverageSessions({ sessions }) {
     };
 
     return (
-        <ResponsiveContainer width="100%" height="50%">
+        <ResponsiveContainer width="100%" height={300}>
             <LineChart
                 width={'100%'}
                 height={300}
