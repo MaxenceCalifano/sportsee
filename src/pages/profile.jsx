@@ -45,7 +45,7 @@ function Profile() {
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <DailyActivity userID={user.id} />
-                    <div>
+                    <div className={styles.charts}>
                         <AverageSessions data={sessions} />
                         <Performance data={performance} />
                     </div>

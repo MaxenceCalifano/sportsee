@@ -8,23 +8,21 @@ function Performance({ data }) {
         if (data) {
             const perf = { ...data };
             perf.data.forEach(element => {
-                const kindIndex = element.kind
-                element.kind = perf.kind[kindIndex]
+                element.kind = perf.kind[element.kind]
             });
             setPerformance(perf)
         }
 
     }, [data])
 
-    console.log(performance)
     if (performance) {
         return (
-            <ResponsiveContainer width="100%" height={300}>
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance.data}>
+            <ResponsiveContainer width="30%" height={300}>
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance.data} style={{ background: "#282D30" }}>
                     <PolarGrid />
-                    <PolarAngleAxis dataKey="kind" />
-                    <PolarRadiusAxis />
-                    <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <PolarAngleAxis dataKey="kind" tick={{ fill: "#ffffff" }} />
+                    <PolarRadiusAxis tickLine={false} axisLine={false} />
+                    <Radar name="Mike" dataKey="value" fill="#FF0101" fillOpacity={0.7} />
                 </RadarChart>
             </ResponsiveContainer>
         );
