@@ -4,6 +4,7 @@ import DailyActivity from "../Components/DailyActivity";
 import AverageSessions from "../Components/AverageSessions";
 import Performance from "../Components/Performance";
 import Objectif from "../Components/Objectif";
+import RightBar from "../Components/RightBar";
 
 import styles from '../styles/profile.module.css';
 
@@ -45,11 +46,16 @@ function Profile() {
                 <section className={styles.content}>
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-                    <DailyActivity userID={user.id} />
-                    <div className={styles.charts}>
-                        <AverageSessions data={sessions} />
-                        <Performance data={performance} />
-                        <Objectif data={user.score} />
+                    <div className={styles.datas}>
+                        <div className={styles.chartsContainer}>
+                            <DailyActivity userID={user.id} />
+                            <div className={styles.charts}>
+                                <AverageSessions data={sessions} />
+                                <Performance data={performance} />
+                                <Objectif data={user.score} />
+                            </div>
+                        </div>
+                        <RightBar data={user.keyData} />
                     </div>
                 </section>
             </main>

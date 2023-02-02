@@ -17,7 +17,15 @@ main {
         var(--primary-color);
 }
 
+.chartsContainer {
+    width: 80%;
+}
+
 .charts {
     display: flex;
     justify-content: space-between;
+}
+
+.datas {
+    display: flex;
 }
