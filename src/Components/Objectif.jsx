@@ -11,7 +11,7 @@ function Objectif({ data }) {
                 <span style={{ fontSize: '1.8rem', fontWeight: 600 }}>{data * 100}%</span><br />
                 <span style={{ color: '#74798C' }}>de votre objectif</span>
             </p>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width={260} height={200}>
                 <RadialBarChart
                     startAngle={0}
                     endAngle={360}

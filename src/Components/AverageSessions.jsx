@@ -40,7 +40,7 @@ function AverageSessions({ data }) {
     };
 
     return (
-        <ResponsiveContainer width="30%" height={300}>
+        <ResponsiveContainer width={260} height={200}>
             <LineChart
                 width={'100%'}
                 height={300}

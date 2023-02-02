@@ -17,11 +17,11 @@ function Performance({ data }) {
 
     if (performance) {
         return (
-            <ResponsiveContainer width="30%" height={300}>
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance.data} style={{ background: "#282D30", borderRadius: '5px' }}>
+            <ResponsiveContainer width={260} height={200}>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={performance.data} style={{ background: "#282D30", borderRadius: '5px' }}>
                     <PolarGrid radialLines={false} />
-                    <PolarAngleAxis dataKey="kind" tick={{ fill: "#ffffff" }} />
-                    <PolarRadiusAxis tickLine={false} axisLine={false} />
+                    <PolarAngleAxis dataKey="kind" style={{ fontSize: '12px' }} tick={{ fill: "#ffffff" }} />
+                    <PolarRadiusAxis style={{ fontSize: '0px' }} tickLine={false} axisLine={false} />
                     <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
                 </RadarChart>
             </ResponsiveContainer>
