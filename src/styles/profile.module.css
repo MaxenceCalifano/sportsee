@@ -19,4 +19,5 @@ main {
 
 .charts {
     display: flex;
+    justify-content: space-between;
 }

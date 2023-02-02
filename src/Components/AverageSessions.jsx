@@ -45,7 +45,7 @@ function AverageSessions({ data }) {
                 width={'100%'}
                 height={300}
                 data={formattedSessions}
-                style={{ background: '#FF0000' }}
+                style={{ background: '#FF0000', borderRadius: '5px' }}
                 margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
             >
                 <XAxis dataKey={'day'} tick={{ fill: "#ffffff" }} axisLine={false} tickLine={false} />
