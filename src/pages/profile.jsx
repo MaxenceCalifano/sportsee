@@ -3,6 +3,7 @@ import LeftNav from "../Components/LeftNav";
 import DailyActivity from "../Components/DailyActivity";
 import AverageSessions from "../Components/AverageSessions";
 import Performance from "../Components/Performance";
+import Objectif from "../Components/Objectif";
 
 import styles from '../styles/profile.module.css';
 
@@ -34,7 +35,7 @@ function Profile() {
             .catch(err => console.log(err))
     }, [])
 
-    console.log(user)
+
     if (!user) return null // Retourner un loader
     return (
         <>
@@ -48,6 +49,7 @@ function Profile() {
                     <div className={styles.charts}>
                         <AverageSessions data={sessions} />
                         <Performance data={performance} />
+                        <Objectif data={user.score} />
                     </div>
                 </section>
             </main>

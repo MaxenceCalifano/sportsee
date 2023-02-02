@@ -19,10 +19,10 @@ function Performance({ data }) {
         return (
             <ResponsiveContainer width="30%" height={300}>
                 <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance.data} style={{ background: "#282D30" }}>
-                    <PolarGrid />
+                    <PolarGrid radialLines={false} />
                     <PolarAngleAxis dataKey="kind" tick={{ fill: "#ffffff" }} />
                     <PolarRadiusAxis tickLine={false} axisLine={false} />
-                    <Radar name="Mike" dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+                    <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
                 </RadarChart>
             </ResponsiveContainer>
         );

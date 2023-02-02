@@ -1,19 +1,38 @@
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
-function Objectif() {
+import styles from '../styles/objectifRadialChart.module.css'
+
+function Objectif({ data }) {
+
     return (
-        <ResponsiveContainer width="100%" height="100%">
-            <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
-                <RadialBar
-                    minAngle={15}
-                    label={{ position: 'insideStart', fill: '#fff' }}
-                    background
-                    clockWise
-                    dataKey="uv"
-                />
-                <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
-            </RadialBarChart>
-        </ResponsiveContainer>
+        <div className={styles.container}>
+            <p className={styles.score}>Score</p>
+            <p className={styles.data}>
+                <span style={{ fontSize: '1.8rem', fontWeight: 600 }}>{data * 100}%</span><br />
+                <span style={{ color: '#74798C' }}>de votre objectif</span>
+            </p>
+            <ResponsiveContainer width="100%" height={300}>
+                <RadialBarChart
+                    startAngle={0}
+                    endAngle={360}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius="40%"
+                    outerRadius="80%"
+                    barSize={10}
+                    data={[{ score: 100, fill: "#FBFBFB" }, { score: data * 100, fill: '#FF0000' }]}
+                    style={{ background: "#FBFBFB" }}
+                >
+                    <RadialBar
+                        background
+                        dataKey="score"
+                        cornerRadius={20}
+                        clockWise={false}
+                    />
+                </RadialBarChart>
+            </ResponsiveContainer >
+        </div >
+
     );
 }
 
