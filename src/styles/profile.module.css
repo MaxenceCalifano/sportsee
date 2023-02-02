@@ -24,8 +24,10 @@ main {
 .charts {
     display: flex;
     justify-content: space-between;
+    margin-top: 3%;
 }
 
 .datas {
     display: flex;
+    gap: 20px;
 }
