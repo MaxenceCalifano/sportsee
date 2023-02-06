@@ -9,6 +9,7 @@ import RightBar from "../Components/RightBar";
 import styles from '../styles/profile.module.css';
 
 import { useEffect, useState } from "react";
+import { getUser, getUserActivity, getUserPerformance, getUserSessions } from "../servicesAPI";
 
 function Profile() {
 
@@ -17,29 +18,24 @@ function Profile() {
     const [performance, setPerformance] = useState();
     const [activity, setActivity] = useState();
 
+    //fetch
+
     useEffect(() => {
-        fetch("http://localhost:3000/user/18")
-            .then(response => response.json())
+        getUser()
             .then(res => setUser(res.data))
-            .catch(err => console.log(err))
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/user/18/activity`)
-            .then(response => response.json())
+        getUserActivity()
             .then(res => setActivity(res.data.sessions))
-            .catch(err => console.log(err))
     }, [])
 
     useEffect(() => {
-        fetch("http://localhost:3000/user/18/average-sessions")
-            .then(response => response.json())
+        getUserSessions()
             .then(res => setSessions(res.data.sessions))
-            .catch(err => console.log(err))
     }, [])
     useEffect(() => {
-        fetch("http://localhost:3000/user/18/performance")
-            .then(response => response.json())
+        getUserPerformance()
             .then(res => setPerformance(res.data))
             .catch(err => console.log(err))
     }, [])
