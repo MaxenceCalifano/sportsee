@@ -15,11 +15,19 @@ function Profile() {
     const [user, setUser] = useState();
     const [sessions, setSessions] = useState();
     const [performance, setPerformance] = useState();
+    const [activity, setActivity] = useState();
 
     useEffect(() => {
         fetch("http://localhost:3000/user/18")
             .then(response => response.json())
             .then(res => setUser(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/user/18/activity`)
+            .then(response => response.json())
+            .then(res => setActivity(res.data.sessions))
             .catch(err => console.log(err))
     }, [])
 
@@ -48,7 +56,7 @@ function Profile() {
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
                         <div className={styles.chartsContainer}>
-                            <DailyActivity userID={user.id} />
+                            <DailyActivity data={activity} />
                             <div className={styles.charts}>
                                 <AverageSessions data={sessions} />
                                 <Performance data={performance} />

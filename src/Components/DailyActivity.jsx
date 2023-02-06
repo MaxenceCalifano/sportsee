@@ -1,20 +1,8 @@
 import { BarChart, Bar, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts";
-import { useEffect, useState } from "react";
-
 import styles from '../styles/dailyActivity.module.css';
 
 
-function DailyActivity({ userID }) {
-
-    const [sessions, setSessions] = useState();
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/user/${userID}/activity`)
-            .then(response => response.json())
-            .then(res => setSessions(res.data.sessions))
-            .catch(err => console.log(err))
-    }, [userID])
-
+function DailyActivity({ data }) {
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
@@ -43,12 +31,12 @@ function DailyActivity({ userID }) {
     return (
         <>
             {
-                sessions ?
+                data ?
                     <ResponsiveContainer height={300} className={styles.container}>
                         <BarChart
                             width='80%'
                             height={'100%'}
-                            data={sessions}
+                            data={data}
                             margin={{
                                 top: 20,
                                 right: 30,
