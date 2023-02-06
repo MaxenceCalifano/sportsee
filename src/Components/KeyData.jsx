@@ -17,6 +17,7 @@ function KeyData({ data, logo, children, color }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            padding: '2px'
         },
         quantity: {
             fontWeight: 600,

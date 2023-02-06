@@ -46,7 +46,7 @@ function DailyActivity({ userID }) {
                 sessions ?
                     <ResponsiveContainer height={300} className={styles.container}>
                         <BarChart
-                            width={500}
+                            width='80%'
                             height={'100%'}
                             data={sessions}
                             margin={{

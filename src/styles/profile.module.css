@@ -25,9 +25,17 @@ main {
     display: flex;
     justify-content: space-between;
     margin-top: 3%;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .datas {
     display: flex;
     gap: 20px;
+}
+
+@media screen and (max-width: 1280px) {
+    .charts {
+        justify-content: center;
+    }
 }

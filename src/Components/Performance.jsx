@@ -1,4 +1,4 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { useState, useEffect } from 'react';
 
 function Performance({ data }) {
@@ -17,14 +17,12 @@ function Performance({ data }) {
 
     if (performance) {
         return (
-            <ResponsiveContainer width={260} height={200}>
-                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={performance.data} style={{ background: "#282D30", borderRadius: '5px' }}>
-                    <PolarGrid radialLines={false} />
-                    <PolarAngleAxis dataKey="kind" style={{ fontSize: '12px' }} tick={{ fill: "#ffffff" }} />
-                    <PolarRadiusAxis style={{ fontSize: '0px' }} tickLine={false} axisLine={false} />
-                    <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
-                </RadarChart>
-            </ResponsiveContainer>
+            <RadarChart width={260} height={200} cx="50%" cy="50%" outerRadius="70%" data={performance.data} style={{ background: "#282D30", borderRadius: '5px' }}>
+                <PolarGrid radialLines={false} />
+                <PolarAngleAxis dataKey="kind" style={{ fontSize: '12px' }} tick={{ fill: "#ffffff" }} />
+                <PolarRadiusAxis style={{ fontSize: '0px' }} tickLine={false} axisLine={false} />
+                <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+            </RadarChart>
         );
     }
 

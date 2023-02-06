@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, ReferenceDot } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceDot } from 'recharts';
 import { useState, useEffect } from 'react';
 
 function AverageSessions({ data }) {
@@ -40,22 +40,21 @@ function AverageSessions({ data }) {
     };
 
     return (
-        <ResponsiveContainer width={260} height={200}>
-            <LineChart
-                width={'100%'}
-                height={300}
-                data={formattedSessions}
-                style={{ background: '#FF0000', borderRadius: '5px' }}
-                margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
-            >
-                <XAxis dataKey={'day'} tick={{ fill: "#ffffff" }} axisLine={false} tickLine={false} />
-                <YAxis hide={true} domain={['dataMin-10', 'dataMax + 10']} />
-                <ReferenceDot fill='red' />
-                <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: 'none' }} cursor={false} />
-                <Legend verticalAlign="top" align="left" content={renderLegend} margin={{ top: 10, left: 0, right: 0, bottom: 10 }} />
-                <Line dot={false} type="natural" dataKey="sessionLength" stroke="#ffffff" strokeWidth={3} activeDot={{ stroke: 'rgba(255,255,255,0.3)', strokeWidth: 17, r: 7 }} />
-            </LineChart>
-        </ResponsiveContainer>
+        < LineChart
+            width={260}
+            height={200}
+            data={formattedSessions}
+            style={{ background: '#FF0000', borderRadius: '5px' }
+            }
+            margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
+        >
+            <XAxis dataKey={'day'} tick={{ fill: "#ffffff" }} axisLine={false} tickLine={false} />
+            <YAxis hide={true} domain={['dataMin-10', 'dataMax + 10']} />
+            <ReferenceDot fill='red' />
+            <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: 'none' }} cursor={false} />
+            <Legend verticalAlign="top" align="left" content={renderLegend} margin={{ top: 10, left: 0, right: 0, bottom: 10 }} />
+            <Line dot={false} type="natural" dataKey="sessionLength" stroke="#ffffff" strokeWidth={3} activeDot={{ stroke: 'rgba(255,255,255,0.3)', strokeWidth: 17, r: 7 }} />
+        </LineChart >
     );
 }
 

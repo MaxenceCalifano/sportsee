@@ -1,7 +1,6 @@
 .leftNav {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 101px;
     top: 98px;
     justify-content: center;
