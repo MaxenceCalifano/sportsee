@@ -40,7 +40,7 @@ input:checked+.sliderRound {
 }
 
 input:focus+.sliderRound {
-    box-shadow: 0 0 1px var(--primary-color);
+    box-shadow: 0 0 0px var(--primary-color);
 }
 
 input:checked+.sliderRound:before {
