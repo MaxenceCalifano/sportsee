@@ -23,21 +23,24 @@ function Profile() {
     useEffect(() => {
         getUser()
             .then(res => setUser(res.data))
+            .catch(err => console.error(err))
     }, [])
 
     useEffect(() => {
         getUserActivity()
             .then(res => setActivity(res.data.sessions))
+            .catch(err => console.error(err))
     }, [])
 
     useEffect(() => {
         getUserSessions()
             .then(res => setSessions(res.data.sessions))
+            .catch(err => console.error(err))
     }, [])
     useEffect(() => {
         getUserPerformance()
             .then(res => setPerformance(res.data))
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
     }, [])
 
 
