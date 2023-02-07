@@ -21,6 +21,12 @@ function Profile() {
     //fetch
 
     useEffect(() => {
+        fetch('https://apimocha.com/sportsee/user/18')
+            .then(response => response.json())
+            .then(res => console.log(res))
+    }, [])
+
+    useEffect(() => {
         getUser()
             .then(res => setUser(res.data))
             .catch(err => console.error(err))
