@@ -18,14 +18,11 @@ function Profile() {
     const [sessions, setSessions] = useState();
     const [performance, setPerformance] = useState();
     const [activity, setActivity] = useState();
+    const [mockedAPI, setMockedAPI] = useState(false);
 
-    //fetch
-
-    useEffect(() => {
-        fetch('https://apimocha.com/sportsee/user/18')
-            .then(response => response.json())
-            .then(res => console.log(res))
-    }, [])
+    const toggleAPI = () => {
+        setMockedAPI(!mockedAPI)
+    }
 
     useEffect(() => {
         getUser()
@@ -58,7 +55,7 @@ function Profile() {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
-                    <Toggle />
+                    <Toggle toggle={toggleAPI} />
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
