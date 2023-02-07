@@ -38,4 +38,8 @@ main {
     .charts {
         justify-content: center;
     }
+
+    main {
+        height: auto;
+    }
 }
