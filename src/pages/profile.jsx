@@ -5,6 +5,7 @@ import AverageSessions from "../Components/AverageSessions";
 import Performance from "../Components/Performance";
 import Objectif from "../Components/Objectif";
 import RightBar from "../Components/RightBar";
+import Toggle from "../Components/Toggle";
 
 import styles from '../styles/profile.module.css';
 
@@ -57,6 +58,7 @@ function Profile() {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
+                    <Toggle />
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
