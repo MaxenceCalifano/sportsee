@@ -1,5 +1,3 @@
-//import styles from '../styles/sportLogo.module.css';
-
 function SportType({ sport, logo }) {
     const styles = {
         sportLogo: {

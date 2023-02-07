@@ -8,6 +8,10 @@ function AverageSessions({ data }) {
 
     useEffect(() => {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+
+        /**
+         * Change the number in data object to letters corresponding to days of the week, to display them as tick of the chart
+         */
         if (data) {
             const sessions = [...data]
 

@@ -21,9 +21,12 @@ function Profile() {
     const [mockedAPI, setMockedAPI] = useState(false);
     const [userID, setUserID] = useState(18);
 
+    //Change state to switch between mocked and real API
     const toggleAPI = () => {
         setMockedAPI(!mockedAPI)
     }
+
+    //Switch between the two existing users
     const toggleUser = () => {
         userID === 18 ? setUserID(12) : setUserID(18)
     }
@@ -32,27 +35,22 @@ function Profile() {
         getUser(userID)
             .then(res => setUser(res.data))
             .catch(err => console.error(err))
-    }, [userID])
 
-    useEffect(() => {
         getUserActivity(userID)
             .then(res => setActivity(res.data.sessions))
             .catch(err => console.error(err))
-    }, [userID])
 
-    useEffect(() => {
         getUserSessions(userID)
             .then(res => setSessions(res.data.sessions))
             .catch(err => console.error(err))
-    }, [userID])
-    useEffect(() => {
+
         getUserPerformance(userID)
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
     }, [userID])
 
-
-    if (!user) return null // Retourner un loader
+    // Don't show UI until user data are loaded
+    if (!user) return null
     return (
         <>
             <Header />

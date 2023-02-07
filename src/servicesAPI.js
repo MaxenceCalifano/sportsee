@@ -1,5 +1,9 @@
 const url = "http://localhost:3000"
 
+
+/**
+ * @param {Number} id of the user
+ */
 export const getUser = async (id) => {
     const response = await fetch(`${url}/user/${id}`)
     if(!response.ok) {
@@ -13,6 +17,7 @@ export const getUser = async (id) => {
     } 
     return user
 }
+
 export const getUserActivity = async (id) => {
     const response = await fetch(`${url}/user/${id}/activity`)
     if(!response.ok) {
@@ -22,6 +27,7 @@ export const getUserActivity = async (id) => {
     const activity = response.json()
     return activity
 }
+
 export const getUserSessions = async (id) => {
     const response = await fetch(`${url}/user/${id}/average-sessions`)
     if(!response.ok) {
@@ -31,6 +37,7 @@ export const getUserSessions = async (id) => {
     const sessions = response.json()
     return sessions
 }
+
 export const getUserPerformance = async (id) => {
     const response = await fetch(`${url}/user/${id}/performance`)
     if(!response.ok) {
