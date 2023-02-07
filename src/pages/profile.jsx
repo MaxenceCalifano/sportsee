@@ -59,7 +59,8 @@ function Profile() {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
-
+                    <Toggle toggle={toggleAPI} />
+                    <Toggle toggle={toggleUser} />
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
@@ -69,8 +70,7 @@ function Profile() {
                                 <AverageSessions data={sessions} />
                                 <Performance data={performance} />
                                 <Objectif data={user.score} />
-                            </div>  <Toggle toggle={toggleAPI} />
-                            <Toggle toggle={toggleUser} />
+                            </div>
                         </div>
                         <RightBar data={user.keyData} />
                     </div>

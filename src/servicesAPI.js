@@ -6,7 +6,11 @@ export const getUser = async (id) => {
         const errorMessage = `Une erreur est survenue: ${response.status}`
         throw new Error(errorMessage)
     }
-    const user = response.json()
+    let user = await response.json()
+    if(Object.hasOwn(user.data,"todayScore")) {
+       const todayScore = user.data.todayScore
+       user.data['score'] = todayScore 
+    } 
     return user
 }
 export const getUserActivity = async (id) => {
