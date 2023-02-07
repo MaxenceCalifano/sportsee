@@ -1,7 +1,7 @@
 const url = "http://localhost:3000"
 
-export const getUser = async () => {
-    const response = await fetch(`${url}/user/18`)
+export const getUser = async (id) => {
+    const response = await fetch(`${url}/user/${id}`)
     if(!response.ok) {
         const errorMessage = `Une erreur est survenue: ${response.status}`
         throw new Error(errorMessage)
@@ -9,8 +9,8 @@ export const getUser = async () => {
     const user = response.json()
     return user
 }
-export const getUserActivity = async () => {
-    const response = await fetch(`${url}/user/18/activity`)
+export const getUserActivity = async (id) => {
+    const response = await fetch(`${url}/user/${id}/activity`)
     if(!response.ok) {
         const errorMessage = `Une erreur est survenue: ${response.status}`
         throw new Error(errorMessage)
@@ -18,8 +18,8 @@ export const getUserActivity = async () => {
     const activity = response.json()
     return activity
 }
-export const getUserSessions = async () => {
-    const response = await fetch(`${url}/user/18/average-sessions`)
+export const getUserSessions = async (id) => {
+    const response = await fetch(`${url}/user/${id}/average-sessions`)
     if(!response.ok) {
         const errorMessage = `Une erreur est survenue: ${response.status}`
         throw new Error(errorMessage)
@@ -27,8 +27,8 @@ export const getUserSessions = async () => {
     const sessions = response.json()
     return sessions
 }
-export const getUserPerformance = async () => {
-    const response = await fetch(`${url}/user/18/performance`)
+export const getUserPerformance = async (id) => {
+    const response = await fetch(`${url}/user/${id}/performance`)
     if(!response.ok) {
         const errorMessage = `Une erreur est survenue: ${response.status}`
         throw new Error(errorMessage)

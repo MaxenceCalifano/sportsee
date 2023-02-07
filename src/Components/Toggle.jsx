@@ -1,11 +1,11 @@
 import styles from '../styles/toggle.module.css'
 
-function Toggle({ toggle }) {
+function Toggle(props) {
     return (
         <label className={styles.switch}>
             <input type='checkbox'>
             </input>
-            <span onClick={toggle} className={styles.sliderRound}></span>
+            <span onClick={props.toggle} className={styles.sliderRound}></span>
         </label>
     );
 }

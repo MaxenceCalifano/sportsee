@@ -19,33 +19,37 @@ function Profile() {
     const [performance, setPerformance] = useState();
     const [activity, setActivity] = useState();
     const [mockedAPI, setMockedAPI] = useState(false);
+    const [userID, setUserID] = useState(18);
 
     const toggleAPI = () => {
         setMockedAPI(!mockedAPI)
     }
+    const toggleUser = () => {
+        userID === 18 ? setUserID(12) : setUserID(18)
+    }
 
     useEffect(() => {
-        getUser()
+        getUser(userID)
             .then(res => setUser(res.data))
             .catch(err => console.error(err))
-    }, [])
+    }, [userID])
 
     useEffect(() => {
-        getUserActivity()
+        getUserActivity(userID)
             .then(res => setActivity(res.data.sessions))
             .catch(err => console.error(err))
-    }, [])
+    }, [userID])
 
     useEffect(() => {
-        getUserSessions()
+        getUserSessions(userID)
             .then(res => setSessions(res.data.sessions))
             .catch(err => console.error(err))
-    }, [])
+    }, [userID])
     useEffect(() => {
-        getUserPerformance()
+        getUserPerformance(userID)
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
-    }, [])
+    }, [userID])
 
 
     if (!user) return null // Retourner un loader
@@ -55,7 +59,7 @@ function Profile() {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
-                    <Toggle toggle={toggleAPI} />
+
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
@@ -65,7 +69,8 @@ function Profile() {
                                 <AverageSessions data={sessions} />
                                 <Performance data={performance} />
                                 <Objectif data={user.score} />
-                            </div>
+                            </div>  <Toggle toggle={toggleAPI} />
+                            <Toggle toggle={toggleUser} />
                         </div>
                         <RightBar data={user.keyData} />
                     </div>
