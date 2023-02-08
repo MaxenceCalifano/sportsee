@@ -1,5 +1,7 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
 
 function Performance({ data }) {
     const [performance, setPerformance] = useState()
@@ -26,6 +28,10 @@ function Performance({ data }) {
         );
     }
 
+}
+
+Performance.propTypes = {
+    data: PropTypes.object
 }
 
 export default Performance;

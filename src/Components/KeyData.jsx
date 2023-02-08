@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+
 function KeyData({ data, logo, children, color }) {
 
     const styles = {
@@ -37,6 +40,12 @@ function KeyData({ data, logo, children, color }) {
             </div>
         </div>
     );
+}
+
+KeyData.propTypes = {
+    color: PropTypes.string,
+    data: PropTypes.string,
+    logo: PropTypes.string
 }
 
 export default KeyData;

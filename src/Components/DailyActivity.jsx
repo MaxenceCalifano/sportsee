@@ -1,5 +1,6 @@
 import { BarChart, Bar, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts";
 import styles from '../styles/dailyActivity.module.css';
+import PropTypes from 'prop-types';
 
 
 function DailyActivity({ data }) {
@@ -67,6 +68,10 @@ function DailyActivity({ data }) {
             }
         </>
     );
+}
+
+DailyActivity.propTypes = {
+    data: PropTypes.array
 }
 
 export default DailyActivity;

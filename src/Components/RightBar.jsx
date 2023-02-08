@@ -4,6 +4,8 @@ import caloriesLogo from '../assets/calories.png';
 import glucidesLogo from '../assets/glucides.png';
 import proteinesLogo from '../assets/proteines.png';
 import lipidesLogo from '../assets/lipides.png';
+import PropTypes from 'prop-types';
+
 
 function RightBar({ data }) {
     return (
@@ -14,6 +16,10 @@ function RightBar({ data }) {
             <KeyData data={`${data.lipidCount}g`} logo={lipidesLogo} color={'rgba(253, 81, 129, 0.06)'}>Lipides</KeyData>
         </section>
     );
+}
+
+RightBar.propTypes = {
+    data: PropTypes.object
 }
 
 export default RightBar;

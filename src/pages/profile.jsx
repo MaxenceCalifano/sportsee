@@ -48,7 +48,7 @@ function Profile() {
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
     }, [userID])
-
+    console.log(activity)
     // Don't show UI until user data are loaded
     if (!user) return null
     return (

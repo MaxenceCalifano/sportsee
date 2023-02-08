@@ -1,4 +1,6 @@
 import styles from '../styles/toggle.module.css'
+import PropTypes from 'prop-types';
+
 
 function Toggle(props) {
     return (
@@ -10,4 +12,8 @@ function Toggle(props) {
     );
 }
 
+
+Toggle.propTypes = {
+    props: PropTypes.object
+}
 export default Toggle;

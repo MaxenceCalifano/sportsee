@@ -1,4 +1,6 @@
 import { RadialBarChart, RadialBar } from 'recharts';
+import PropTypes from 'prop-types';
+
 
 import styles from '../styles/objectifRadialChart.module.css'
 
@@ -34,6 +36,10 @@ function Objectif({ data }) {
         </div >
 
     );
+}
+
+Objectif.propTypes = {
+    data: PropTypes.number
 }
 
 export default Objectif;

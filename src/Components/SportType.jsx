@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+
 function SportType({ sport, logo }) {
     const styles = {
         sportLogo: {
@@ -15,6 +18,11 @@ function SportType({ sport, logo }) {
             <img src={logo} alt={`logo de la discipline ${sport}`} />
         </div>
     );
+}
+
+SportType.propTypes = {
+    sport: PropTypes.string,
+    logo: PropTypes.string
 }
 
 export default SportType;

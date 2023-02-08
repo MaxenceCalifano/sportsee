@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ReferenceDot } from 'recharts';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function AverageSessions({ data }) {
 
@@ -62,4 +63,9 @@ function AverageSessions({ data }) {
     );
 }
 
+AverageSessions.propTypes = {
+    data: PropTypes.array
+}
+
 export default AverageSessions;
+
