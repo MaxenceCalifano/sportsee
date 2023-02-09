@@ -10,7 +10,7 @@ import Toggle from "../Components/Toggle";
 import styles from '../styles/profile.module.css';
 
 import { useEffect, useState } from "react";
-import { getUser, getUserActivity, getUserPerformance, getUserSessions } from "../servicesAPI";
+import { serviceAPI } from "../servicesAPI";
 
 function Profile() {
 
@@ -31,20 +31,23 @@ function Profile() {
         userID === 18 ? setUserID(12) : setUserID(18)
     }
 
+
     useEffect(() => {
-        getUser(userID)
+        const serviceApi = new serviceAPI(userID)
+
+        serviceApi.getUser()
             .then(res => setUser(res.data))
             .catch(err => console.error(err))
 
-        getUserActivity(userID)
+        serviceApi.getUserActivity()
             .then(res => setActivity(res.data.sessions))
             .catch(err => console.error(err))
 
-        getUserSessions(userID)
+        serviceApi.getUserSessions()
             .then(res => setSessions(res.data.sessions))
             .catch(err => console.error(err))
 
-        getUserPerformance(userID)
+        serviceApi.getUserPerformance()
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
     }, [userID])
