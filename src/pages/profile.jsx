@@ -31,7 +31,6 @@ function Profile() {
         userID === 18 ? setUserID(12) : setUserID(18)
     }
 
-
     useEffect(() => {
         const serviceApi = new serviceAPI(userID)
 

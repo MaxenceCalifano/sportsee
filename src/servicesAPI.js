@@ -1,4 +1,5 @@
 const url = "http://localhost:3000"
+
 /**
  * @param {Number} id of the user
  */
