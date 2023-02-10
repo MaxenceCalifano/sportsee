@@ -10,7 +10,7 @@ import Toggle from "../Components/Toggle";
 import styles from '../styles/profile.module.css';
 
 import { useEffect, useState } from "react";
-import { serviceAPI } from "../servicesAPI";
+import { serviceAPI, serviceAPIMock } from "../servicesAPI";
 
 function Profile() {
 
@@ -32,7 +32,7 @@ function Profile() {
     }
 
     useEffect(() => {
-        const serviceApi = new serviceAPI(userID)
+        const serviceApi = mockedAPI ? new serviceAPIMock(userID) : new serviceAPI(userID)
 
         serviceApi.getUser()
             .then(res => setUser(res.data))
@@ -49,7 +49,7 @@ function Profile() {
         serviceApi.getUserPerformance()
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
-    }, [userID])
+    }, [userID, mockedAPI])
     console.log(activity)
     // Don't show UI until user data are loaded
     if (!user) return null
