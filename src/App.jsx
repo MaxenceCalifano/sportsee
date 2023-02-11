@@ -1,11 +1,12 @@
 import Profile from "./pages/profile";
-import React from "react";
-const ApiContext = React.createContext(false)
+import { createContext, useState } from "react";
+export const ApiContext = createContext(null)
 
 function App() {
+    const [api, setApi] = useState(false)
     return (
-        <ApiContext.Provider value={false}>
-            <Profile />
+        <ApiContext.Provider value={api}>
+            <Profile setApi={setApi} />
         </ApiContext.Provider>
     );
 }

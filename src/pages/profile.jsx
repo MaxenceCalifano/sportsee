@@ -9,22 +9,21 @@ import Toggle from "../Components/Toggle";
 
 import styles from '../styles/profile.module.css';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { serviceAPI, serviceAPIMock } from "../servicesAPI";
 
-function Profile() {
+import { ApiContext } from "../App";
+
+function Profile(props) {
 
     const [user, setUser] = useState();
     const [sessions, setSessions] = useState();
     const [performance, setPerformance] = useState();
     const [activity, setActivity] = useState();
-    const [mockedAPI, setMockedAPI] = useState(false);
     const [userID, setUserID] = useState(18);
 
-    //Change state to switch between mocked and real API
-    const toggleAPI = () => {
-        setMockedAPI(!mockedAPI)
-    }
+    // Get boolean from context to determine either the API or the mockedAPI will be used
+    const API = useContext(ApiContext)
 
     //Switch between the two existing users
     const toggleUser = () => {
@@ -32,7 +31,7 @@ function Profile() {
     }
 
     useEffect(() => {
-        const serviceApi = mockedAPI ? new serviceAPIMock(userID) : new serviceAPI(userID)
+        const serviceApi = API ? new serviceAPI(userID) : new serviceAPIMock(userID)
 
         serviceApi.getUser()
             .then(res => setUser(res.data))
@@ -49,8 +48,7 @@ function Profile() {
         serviceApi.getUserPerformance()
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
-    }, [userID, mockedAPI])
-    console.log(activity)
+    }, [userID, API])
     // Don't show UI until user data are loaded
     if (!user) return null
     return (
@@ -59,7 +57,7 @@ function Profile() {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
-                    <Toggle toggle={toggleAPI} />
+                    <Toggle toggle={() => props.setApi(API ? false : true)} />
                     <Toggle toggle={toggleUser} />
                     <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
