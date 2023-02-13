@@ -57,9 +57,17 @@ function Profile(props) {
             <main>
                 <LeftNav />
                 <section className={styles.content}>
-                    <Toggle toggle={() => props.setApi(API ? false : true)} />
-                    <Toggle toggle={toggleUser} />
-                    <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
+                    <div className={styles.togglesAndGreeting}>
+                        <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
+                        <div className={styles.togglesContainer}>
+                            <span>Mocked API / API</span>
+                            <Toggle toggle={() => props.setApi(API ? false : true)} />
+                            <span>User 12 / User 18</span>
+                            <Toggle toggle={toggleUser} />
+                        </div>
+
+                    </div>
+
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     <div className={styles.datas}>
                         <div className={styles.chartsContainer}>
