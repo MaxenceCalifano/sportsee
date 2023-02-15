@@ -7,7 +7,7 @@ function App() {
     const value = { api, setApi }
     return (
         <ApiContext.Provider value={value}>
-            <Profile setApi={setApi} />
+            <Profile />
         </ApiContext.Provider>
     );
 }

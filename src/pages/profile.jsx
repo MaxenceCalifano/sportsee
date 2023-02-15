@@ -14,7 +14,7 @@ import { serviceAPI, serviceAPIMock } from "../servicesAPI";
 
 import { ApiContext } from "../App";
 
-function Profile(props) {
+function Profile() {
 
     const [user, setUser] = useState();
     const [sessions, setSessions] = useState();
