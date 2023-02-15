@@ -23,7 +23,7 @@ function Profile(props) {
     const [userID, setUserID] = useState(18);
 
     // Get boolean from context to determine either the API or the mockedAPI will be used
-    const API = useContext(ApiContext)
+    const { api, setApi } = useContext(ApiContext)
 
     //Switch between the two existing users
     const toggleUser = () => {
@@ -31,7 +31,7 @@ function Profile(props) {
     }
 
     useEffect(() => {
-        const serviceApi = API ? new serviceAPI(userID) : new serviceAPIMock(userID)
+        const serviceApi = api ? new serviceAPI(userID) : new serviceAPIMock(userID)
 
         serviceApi.getUser()
             .then(res => setUser(res.data))
@@ -48,7 +48,7 @@ function Profile(props) {
         serviceApi.getUserPerformance()
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
-    }, [userID, API])
+    }, [userID, api])
     // Don't show UI until user data are loaded
     if (!user) return null
     return (
@@ -61,7 +61,7 @@ function Profile(props) {
                         <p className={styles.greetings}>Bonjour <span>{user.userInfos.firstName}</span></p>
                         <div className={styles.togglesContainer}>
                             <span>Mocked API / API</span>
-                            <Toggle toggle={() => props.setApi(API ? false : true)} />
+                            <Toggle toggle={() => setApi(api ? false : true)} />
                             <span>User 12 / User 18</span>
                             <Toggle toggle={toggleUser} />
                         </div>

@@ -91,9 +91,10 @@ export class serviceAPIMock {
                 }
             }
         }
-        return new Promise((resolve) => {
+       /*  return new Promise((resolve) => {
             resolve(user)
-         }) 
+         }) */ 
+         return Promise.resolve(user)
     }
 
     getUserActivity = async () => {

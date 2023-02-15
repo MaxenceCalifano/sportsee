@@ -4,8 +4,9 @@ export const ApiContext = createContext(null)
 
 function App() {
     const [api, setApi] = useState(false)
+    const value = { api, setApi }
     return (
-        <ApiContext.Provider value={api}>
+        <ApiContext.Provider value={value}>
             <Profile setApi={setApi} />
         </ApiContext.Provider>
     );
