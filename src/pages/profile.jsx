@@ -31,8 +31,17 @@ function Profile() {
     }
 
     useEffect(() => {
+
+        /**
+         * Will instance a class that return mocked data or fetch data from the backend
+         * @param {number} userID
+         */
         const serviceApi = api ? new serviceAPI(userID) : new serviceAPIMock(userID)
 
+        /**
+         * @returns { Promise }
+         * Then set the response in a state
+         */
         serviceApi.getUser()
             .then(res => setUser(res.data))
             .catch(err => console.error(err))
@@ -49,6 +58,7 @@ function Profile() {
             .then(res => setPerformance(res.data))
             .catch(err => console.error(err))
     }, [userID, api])
+
     // Don't show UI until user data are loaded
     if (!user) return null
     return (
